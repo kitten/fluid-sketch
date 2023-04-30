@@ -1,0 +1,80 @@
+@font-face {
+  font-family: roboto-flex;
+  font-weight: 100 900;
+  font-named-instance: 'Regular';
+  src: url("./assets/roboto-flex.woff2") format("woff2-variations"),
+       url("./assets/roboto-flex.woff2") format("woff2");
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  appearance: none;
+  border: none;
+  font: inherit;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+html {
+  font-size: 16px;
+  --stroke-scale: 1;
+
+  --font-variable: roboto-flex, sans-serif;
+}
+
+@media (min-resolution: 1.5dppx) {
+  html {
+    --stroke-scale: 1.6;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  html {
+    --stroke-scale: 1;
+  }
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  line-height: 1.3;
+  letter-spacing: 0;
+  font-synthesis: none;
+  font-weight: 400;
+}
+
+#root {
+  width: 382px;
+  height: 720px;
+  border-radius: 50px;
+  background: #000;
+  position: relative;
+}
+
+#root > * {
+  position: absolute;
+  inset: 0;
+}
