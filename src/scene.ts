@@ -84,7 +84,7 @@ export function makeScene(speed: number) {
       function onMotion(event: DeviceMotionEvent) {
         const vec = event.accelerationIncludingGravity;
         if (vec && vec.x != null && vec.y != null) {
-          world.gravity[0] = vec.x * speed;
+          world.gravity[0] = -vec.x * speed;
           world.gravity[1] = vec.y * speed;
         }
       }
@@ -134,5 +134,3 @@ export function makeScene(speed: number) {
     },
   };
 }
-
-export const scene = signal(makeScene());

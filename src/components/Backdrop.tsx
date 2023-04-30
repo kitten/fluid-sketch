@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'preact/hooks';
+import { css } from 'goober';
 
 import { WIDTH, HEIGHT } from '../constants';
 import { makeScene } from '../scene';
 
 import { BlurBlob } from './BlurBlob';
+
+const backdrop = css`
+  position: relative;
+  width: ${WIDTH}px;
+  height: ${HEIGHT}px;
+`;
 
 export const Backdrop = () => {
   const scene = useState(() => makeScene(0.6))[0];
@@ -12,7 +19,7 @@ export const Backdrop = () => {
   useEffect(() => scene.registerAcceleration(), [scene]);
 
   return (
-    <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`}>
+    <div className={backdrop}>
       <BlurBlob
         cx={170}
         cy={200}
@@ -43,6 +50,6 @@ export const Backdrop = () => {
         radius={80}
         scene={scene}
       />
-    </svg>
+    </div>
   );
 };

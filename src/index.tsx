@@ -11,15 +11,4 @@ const Main = () => (
   </>
 );
 
-const root = document.getElementById('root')!;
-
-root.addEventListener('click', async () => {
-  try {
-    await root.requestFullscreen();
-    await screen.orientation.lock('portrait');
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-render(<Main />, root);
+render(<Main />, document.getElementById('root')!);

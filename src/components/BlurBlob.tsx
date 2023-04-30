@@ -4,27 +4,33 @@ import { css } from 'goober';
 
 import { Scene } from '../scene';
 
-const blob = css`
+const blob = (radius: number) => css`
   filter: blur(20px);
+  width: ${radius * 2}px;
+  height: ${radius * 2}px;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
 
   &:nth-child(5n + 1) {
-    fill: hsla(19, 52%, 69%, 0.16);
+    background: hsla(19, 52%, 69%, 0.16);
   }
 
   &:nth-child(5n + 2) {
-    fill: hsla(307, 11%, 70%, 0.16);
+    background: hsla(307, 11%, 70%, 0.16);
   }
 
   &:nth-child(5n + 3) {
-    fill: hsla(324, 56%, 69%, 0.16);
+    background: hsla(324, 56%, 69%, 0.16);
   }
 
   &:nth-child(5n + 4) {
-    fill: hsla(293, 46%, 71%, 0.16);
+    background: hsla(293, 46%, 71%, 0.16);
   }
 
   &:nth-child(5n) {
-    fill: hsla(281, 51%, 71%, 0.16);
+    background: hsla(281, 51%, 71%, 0.16);
   }
 `;
 
@@ -57,12 +63,9 @@ export const BlurBlob = (props: BlurBlobProps) => {
   });
 
   return (
-    <circle
-      cx={radius}
-      cy={radius}
-      r={radius}
+    <div
       style={transform}
-      className={blob}
+      className={blob(radius)}
     />
   );
 };
