@@ -53,9 +53,9 @@ export const BlurBlob = (props: BlurBlobProps) => {
   }, [scene]);
 
   const transform = useComputed(() => {
-    const deg = circle.angle.value / Math.PI * 180;
-    const x = circle.x.value - radius;
-    const y = circle.y.value - radius;
+    const deg = (circle.angle.value / Math.PI * 180).toFixed(1)
+    const x = (circle.x.value - radius).toFixed(1);
+    const y = (circle.y.value - radius).toFixed(1);
     return `
       transform: translate(${x}px, ${y}px) rotate(${deg}deg);
       transform-origin: ${radius}px ${radius}px;

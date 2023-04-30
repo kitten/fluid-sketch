@@ -64,17 +64,13 @@ body {
   letter-spacing: 0;
   font-synthesis: none;
   font-weight: 400;
+  width: 382px;
 }
 
 #root {
   width: 382px;
-  height: 720px;
-  border-radius: 50px;
-  background: #000;
-  position: relative;
 }
 
-#root > * {
-  position: absolute;
-  inset: 0;
+p {
+  padding: 0.5rem 1rem;
 }

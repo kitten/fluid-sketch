@@ -71,13 +71,13 @@ export const timeString = (date: Date) => {
     isPast = true;
     hourStr = 'midnight';
     ampm = '';
-  } else if (hours === 1) {
+  } else if (hours === 12) {
     isPast = true;
     hourStr = 'noon';
     ampm = '';
   }
 
-  if (minutes < 13) {
+  if (minutes < 15) {
     isPast = true;
   } else if (minutes === 15) {
     isPast = true;

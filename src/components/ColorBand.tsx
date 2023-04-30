@@ -32,12 +32,14 @@ export const ColorBand = (props: ColorBandProps) => {
   }, [scene]);
 
   const transform = useComputed(() => {
-    const deg = circle.angle.value / Math.PI * 180;
-    return `transform: translate(${circle.x.value}px, ${circle.y.value}px) rotate(${deg}deg);`;
+    const deg = (circle.angle.value / Math.PI * 180).toFixed(1);
+    const x = circle.x.value.toFixed(1);
+    const y = circle.y.value.toFixed(1);
+    return `translate(${x} ${y}) rotate(${deg})`;
   });
 
   return (
-    <g style={transform}>
+    <g transform={transform}>
       <path
         d={path(radius - 2)}
         fill="none"

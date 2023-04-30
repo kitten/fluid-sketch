@@ -81,20 +81,17 @@ export const TextBand = (props: TextBandProps) => {
     });
   }, [scene]);
 
-  const transform = useComputed(() => {
-    // Limit to +/- 45 for readability
-    const deg = Math.max(-45, Math.min(45, circle.angle.value / Math.PI * 180));
-    const x = circle.x.value - radius;
-    const y = circle.y.value - radius;
-    return `
-      transform: translate(${x}px, ${y}px) rotate(${deg}deg);
-      transform-style: preserve-3d;
-      transform-origin: ${radius}px ${radius}px;
-    `;
-  });
+  const x = useComputed(() => (circle.x.value - radius).toFixed(1));
+  const y = useComputed(() => (circle.y.value - radius).toFixed(1));
 
   return (
-    <foreignObject width={radius * 2} height={radius * 2} className={group} style={transform}>
+    <foreignObject
+      x={x}
+      y={y}
+      width={radius * 2}
+      height={radius * 2}
+      className={group}
+    >
       <div className={animate}>
         {children}
       </div>

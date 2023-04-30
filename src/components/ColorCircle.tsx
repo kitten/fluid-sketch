@@ -50,23 +50,15 @@ export const ColorCircle = (props: ColorCircleProps) => {
     });
   }, [scene]);
 
-  const transform = useComputed(() => {
-    const deg = circle.angle.value / Math.PI * 180;
-    const x = circle.x.value - radius;
-    const y = circle.y.value - radius;
-    return `
-      transform: translate(${x}px, ${y}px) rotate(${deg}deg);
-      transform-origin: ${radius}px ${radius}px;
-    `;
-  });
+  const x = useComputed(() => (circle.x.value - radius).toFixed(1));
+  const y = useComputed(() => (circle.y.value - radius).toFixed(1));
 
   return (
     <foreignObject
-      x={0}
-      y={0}
+      x={x}
+      y={y}
       width={radius * 2}
       height={radius * 2}
-      style={transform}
     >
       <div
         className={conical}
